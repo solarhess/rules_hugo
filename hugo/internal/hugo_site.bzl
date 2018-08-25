@@ -24,7 +24,7 @@ def _hugo_site_impl(ctx):
     ctx.actions.run_shell(
         inputs = [ctx.file.config],
         outputs = [config_file],
-        command = "cp %s %s" % (ctx.file.config.path, config_file.path),
+        command = "cp '%s' '%s'" % (ctx.file.config.path, config_file.path),
     )
     hugo_inputs.append(config_file)
     
@@ -49,7 +49,7 @@ def _hugo_site_impl(ctx):
             ctx.actions.run_shell(
                 inputs = [i],
                 outputs = [o],
-                command = "cp %s %s" % (i.path, o.path),
+                command = "cp '%s' '%s'" % (i.path, o.path),
             )
             hugo_inputs.append(o)
 
