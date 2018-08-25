@@ -6,7 +6,7 @@ def copy_to_dir(ctx, srcs, dirname):
         ctx.actions.run_shell(
             inputs = [i],
             outputs = [o],
-            command = "cp %s %s" % (i.path, o.path),
+            command = "cp '%s' '%s'" % (i.path, o.path),
         )
         outs.append(o)
     return outs
